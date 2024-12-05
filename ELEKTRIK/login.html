@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Genel Stil */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fefef2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* Header */
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Center text */
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    /* Menü */
+    nav {
+      background-color: #004680;
+      padding: 10px 0;
+      text-align: center;
+      width: 100%;
+      position: fixed;
+      top: 50px;
+      left: 0;
+      z-index: 9;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0 3px;
+    }
+
+    nav a:hover {
+      background-color: #fbdedf;
+      color: #34495e;
+      border-radius: 5px;
+    }
+
+    /* Hero Bölümü */
+    .hero {
+      background: url('dashboard1.jpg') no-repeat center center;
+      background-size: cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      position: relative;
+      margin-top: 90px;
+    }
+
+    .hero img {
+      display: none;
+    }
+
+    /* Kartlar */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #004680;
+      color: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card h3 {
+      font-size: 1.2em;
+    }
+
+    .card p {
+      margin: 10px 0;
+    }
+
+    /* Buton Stilleri */
+    .card button {
+      background-color: #1dbf73;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .card button:hover {
+      background-color: #17a964;
+      transform: scale(1.1);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Form Stil */
+    .login-container, .signup-container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .login-container h2, .signup-container h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #666;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .login-button, .signup-button {
+      width: 100%;
+      padding: 10px;
+      background-color: #004680;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-button:hover, .signup-button:hover {
+      background-color: #79bce1;
+    }
+
+    .signup-link {
+      display: block;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #004680;
+      text-decoration: none;
+    }
+
+    .signup-link:hover {
+      text-decoration: underline;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      background-color: #63a6cd;
+      color: #34495e;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    footer a {
+      color: #004680;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Menü -->
+  <header>
+    <h1>Login Sayfası</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Anasayfa</a>
+    <a href="cozumler.html">Çözümler</a>
+    <a href="planlarimiz.html">Planlarımız</a>
+    <a href="fatura-hesapla.html">Fatura Hesapla</a>
+    <a href="dashboard.html">Giriş Yap</a>
+  </nav>
+
+  <!-- Giriş Yapma Formu -->
+  <div class="login-container" id="login">
+    <h2>Giriş Yap</h2>
+    <form action="#" method="post" onsubmit="return loginUser(event)">
+      <div class="input-group">
+        <label for="email">E-posta</label>
+        <input type="email" id="email" name="email" required placeholder="E-posta adresinizi girin">
+      </div>
+      <div class="input-group">
+        <label for="password">Şifre</label>
+        <input type="password" id="password" name="password" required placeholder="Şifrenizi girin">
+      </div>
+      <button type="submit" class="login-button">Giriş Yap</button>
+    </form>
+    <a href="#signup" class="signup-link" onclick="showSignup()">Hesap oluştur</a>
+    <div id="login-error" class="error" style="display: none;">Geçersiz e-posta veya şifre.</div>
+  </div>
+
+  <!-- Hesap Oluşturma Formu -->
+  <div class="signup-container" id="signup" style="display: none;">
+    <h2>Hesap Oluştur</h2>
+    <form action="#" method="post" onsubmit="return registerUser(event)">
+      <div class="input-group">
+        <label for="new-email">E-posta</label>
+        <input type="email" id="new-email" name="new-email" required placeholder="E-posta adresinizi girin">
+      </div>
+      <div class="input-group">
+        <label for="new-password">Şifre</label>
+        <input type="password" id="new-password" name="new-password" required placeholder="Şifrenizi oluşturun">
+      </div>
+      <div class="input-group">
+        <label for="confirm-password">Şifreyi Onayla</label>
+        <input type="password" id="confirm-password" name="confirm-password" required placeholder="Şifrenizi onaylayın">
+      </div>
+      <button type="submit" class="signup-button">Hesap Oluştur</button>
+    </form>
+    <a href="#" class="signup-link" onclick="showLogin()">Zaten hesabınız var mı? Giriş yapın</a>
+    <div id="signup-error" class="error" style="display: none;">Şifre en az 8 karakter olmalıdır!</div>
+  </div>
+
+  <script>
+    // Giriş yapan kullanıcı bilgilerini kaydet
+function loginUser(event) {
+    event.preventDefault(); // Formun submit olmasını engelle
+  
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+  
+    // Kullanıcı bilgilerini kontrol et
+    const savedEmail = localStorage.getItem("userEmail");
+    const savedPassword = localStorage.getItem("userPassword");
+  
+    if (email === savedEmail && password === savedPassword) {
+      // Başarılı giriş, localStorage'a kaydet
+      localStorage.setItem("loggedIn", true);
+      window.location.href = "dashboard.html"; // Dashboard sayfasına yönlendir
+    } else {
+      document.getElementById("login-error").style.display = 'block'; // Hata mesajı göster
+    }
+  }
+  
+
+    // Kayıt olan kullanıcıyı localStorage'a kaydet
+    function registerUser(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("new-email").value;
+      const password = document.getElementById("new-password").value;
+      const confirmPassword = document.getElementById("confirm-password").value;
+
+      // Şifre uzunluğunu kontrol et
+      if (password.length < 8) {
+        document.getElementById("signup-error").style.display = 'block'; // Şifre uzunluğu hatası
+        return false;
+      }
+
+      if (password !== confirmPassword) {
+        alert("Şifreler eşleşmiyor.");
+        return false;
+      }
+
+      // Kullanıcı bilgilerini kaydet
+      localStorage.setItem("userEmail", email);
+      localStorage.setItem("userPassword", password);
+      alert("Hesap başarıyla oluşturuldu. Şimdi giriş yapabilirsiniz.");
+      showLogin();
+    }
+
+    // Sayfa yüklendiğinde, kullanıcının giriş yapıp yapmadığını kontrol et
+    window.onload = function() {
+      const loggedIn = localStorage.getItem("loggedIn");
+      if (loggedIn !== "true") {
+        window.location.href = "login.html"; // Giriş yapılmadıysa login sayfasına yönlendir
+      }
+    }
+
+    // Giriş yapma ekranını göster
+    function showLogin() {
+      document.getElementById("signup").style.display = 'none';
+      document.getElementById("login").style.display = 'block';
+    }
+
+    // Hesap oluşturma ekranını göster
+    function showSignup() {
+      document.getElementById("login").style.display = 'none';
+      document.getElementById("signup").style.display = 'block';
+    }
+
+    // Çıkış yapma fonksiyonu
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      window.location.href = "login.html"; // Giriş sayfasına yönlendir
+    }
+  </script>
+
+  <footer>
+    © 2024 KİHÜ. Tüm hakları saklıdır. <a href="iletisim.html">İletişim</a>
+  </footer>
+
+</body>
+</html>

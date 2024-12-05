@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fatura Hesapla</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fefef2; /* Arka plan daha açık pastel ton */
+      color: #34495e;
+      line-height: 1.5;
+      padding-bottom: 50px; /* Footer ile çakışmayı engellemek için alt boşluk */
+    }
+
+    header {
+      background-color: #63a6cd;  /* Başlık kısmı için yumuşak yeşil ton */
+      padding: 20px 0;
+      text-align: center;
+      color: #34495e;
+      border-bottom: 3px solid  #004680;
+    }
+
+    header h1 {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    nav {
+      background-color: #004680; /* Menü için pastel yeşil ton */
+      padding: 15px 0;
+      text-align: center;
+      border-bottom: 3px solid #fbdedf;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: inline-block;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0 10px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #fbdedf; /* Üzerine gelince pembe ton */
+      color: #34495e;
+      border-radius: 5px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h2 {
+      font-size: 28px;
+      color: #2980b9; /* Mavi başlık */
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      font-size: 16px;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #bdc3c7; /* Açık gri kenar rengi */
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .form-group input[type="number"] {
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .btn {
+      background-color: #2980b9; /* Mavi buton */
+      color: white;
+      font-size: 18px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      text-transform: uppercase;
+    }
+
+    .btn:hover {
+      background-color: #3498db; /* Daha açık mavi buton */
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #2c3e50;
+      font-weight: bold;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      background-color: #63a6cd;
+      color: #34495e;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    footer a {
+      color: #004680; 
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Fatura Hesapla</h1>
+</header>
+
+<nav>
+  <a href="index.html">Anasayfa</a>
+  <a href="cozumlerimiz.html">Çözümler</a>
+  <a href="planlar.html">Planlarımız</a>
+  <a href="hakkimizda.html">Hakkımızda</a>
+  <a href="login.html">Giriş Yap</a>
+</nav>
+
+<div class="container">
+  <h2>Fatura Hesaplama Aracı</h2>
+
+  <div class="form-group">
+    <label for="kwh">Kullanılan Enerji (kWh):</label>
+    <input type="number" id="kwh" placeholder="Enerji miktarını girin" required>
+  </div>
+
+  <div class="form-group">
+    <label for="birimFiyat">Birim Enerji Fiyatı (₺):</label>
+    <input type="number" id="birimFiyat" placeholder="Birim fiyatı girin" required>
+  </div>
+
+  <button class="btn" onclick="faturaHesapla()">Fatura Hesapla</button>
+
+  <div class="result" id="result">
+    <!-- Fatura sonucu buraya gelecek -->
+  </div>
+</div>
+
+<footer>
+  © 2024 KİHÜ. Tüm hakları saklıdır. <a href="iletisim.html">İletişim</a>
+</footer>
+
+<script>
+  function faturaHesapla() {
+    // Kullanıcıdan alınan verileri al
+    var kwh = parseFloat(document.getElementById('kwh').value);
+    var birimFiyat = parseFloat(document.getElementById('birimFiyat').value);
+
+    // Verilerin geçerliliğini kontrol et
+    if (isNaN(kwh) || isNaN(birimFiyat) || kwh <= 0 || birimFiyat <= 0) {
+      document.getElementById('result').innerHTML = "<p style='color:red;'>Lütfen geçerli bir değer girin.</p>";
+      return;
+    }
+
+    // Fatura hesaplaması
+    var fatura = kwh * birimFiyat;
+
+    // Sonucu kullanıcıya göster
+    document.getElementById('result').innerHTML = "<p>Hesaplanan Fatura: <strong>₺" + fatura.toFixed(2) + "</strong></p>";
+  }
+</script>
+
+</body>
+</html>

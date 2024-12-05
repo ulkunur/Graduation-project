@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enerji Tasarrufu</title>
+  <style>
+    /* Genel Stil */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #000;
+      color: #fff;
+      padding: 10px 20px;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu li {
+      margin-right: 15px;
+    }
+
+    .menu li a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    /* Hero Bölümü */
+    .hero {
+      background: url('dashboard1.jpg') no-repeat center center;
+      background-size: cover;
+      height: 400px; /* Yüksekliği daha büyük yaparak görselliği iyileştirin */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero img {
+      display: none; /* Arka plan görseli kullanıldığı için img etiketi görünmesin */
+    }
+
+    /* Kartlar */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #004680;
+      color: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card h3 {
+      font-size: 1.2em;
+    }
+
+    .card p {
+      margin: 10px 0;
+    }
+
+    /* Buton Stilleri */
+    .card button {
+      background-color: #1dbf73;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .card button:hover {
+      background-color: #17a964; /* Renk değişimi */
+      transform: scale(1.1); /* Buton üzerine gelince büyür */
+    }
+
+    .card:hover {
+      transform: translateY(-5px); /* Kart üzerine gelince biraz yükselir */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Kartın etrafında gölge belirir */
+    }
+
+  </style>
+  <script>
+    function logout() {
+      window.location.href = 'index.html'; // Redirect to index.html
+    }
+
+    // Buton tıklama işlevselliği
+    function addToCart(itemName) {
+      // Ürünlere özel karşılaştırma URL'lerini tanımlayın
+      var comparisonUrls = {
+        "Enerji Verimliliği Sınıfını Değiştir": [
+          "https://www.hepsiburada.com/enerji-verimliligi-sinifi-degisimi", // Hepsiburada linki
+          "https://www.trendyol.com/enerji-verimliligi-sinifi-degisimi"  // Trendyol linki
+        ],
+        "Bilgisayarınızı Uyku Moduna Alın": [
+          "https://www.hepsiburada.com/bilgisayar-uyku-modu", 
+          "https://www.trendyol.com/bilgisayar-uyku-modu"
+        ],
+        "Çoklu Tarife Avantajından Yararlanın": [
+          "https://www.hepsiburada.com/coklu-tarife-avantaji",
+          "https://www.trendyol.com/coklu-tarife-avantaji"
+        ],
+        "Enerji Tasarruflu LED Kullanım": [
+          "https://www.hepsiburada.com/led-ampul", 
+          "https://www.trendyol.com/led-ampul"
+        ],
+        "Hayalet Yükleri Kapatın": [
+          "https://www.hepsiburada.com/hayalet-yukler",
+          "https://www.trendyol.com/hayalet-yukler"
+        ],
+        "LCD TV Kullanımı": [
+          "https://www.hepsiburada.com/lcd-tv",
+          "https://www.trendyol.com/lcd-tv"
+        ]
+      };
+
+      // Ürünün karşılaştırma sayfasını aç
+      if (comparisonUrls[itemName]) {
+        var urls = comparisonUrls[itemName];
+        window.open(urls[0], "_blank"); // Hepsiburada linkini aç
+        window.open(urls[1], "_blank"); // Trendyol linkini aç
+      } else {
+        alert(itemName + " için karşılaştırma linki bulunamadı.");
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="images.jpg" alt="Logo">
+    </div>
+    <nav>
+      <ul class="menu">
+        <li><a href="hakkımızda.html">Hakkımızda</a></li>
+        <li><a href="tüketim.html">Tüketim</a></li>
+        <li><a href="oneriler.html">Öneriler</a></li>
+        <li><a href="destek.html">Destek</a></li>
+        <li><a href="javascript:void(0);" onclick="logout()">Çıkış Yap</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Görsel -->
+  <section class="hero">
+    <img src="dashboard1.jpg" alt="Hero Görsel">
+  </section>
+
+  <!-- Ana İçerik -->
+  <main>
+    <div class="card-container">
+      <div class="card">
+        <h3>Enerji Verimliliği Sınıfını Değiştir</h3>
+        <p>C sınıfı buzdolabınızı A sınıfı ile değiştirin.</p>
+        <p><strong>-32,65 TL/ay</strong></p>
+        <button onclick="addToCart('Enerji Verimliliği Sınıfını Değiştir')">Satın Al</button>
+      </div>
+      <div class="card">
+        <h3>Bilgisayarınızı Uyku Moduna Alın</h3>
+        <p>Bekleme modundan tasarruf sağlayın.</p>
+        <p><strong>-3,89 TL/ay</strong></p>
+        <button onclick="addToCart('Bilgisayarınızı Uyku Moduna Alın')">Satın Al</button>
+      </div>
+      <div class="card">
+        <h3>Çoklu Tarife Avantajından Yararlanın</h3>
+        <p>22:00-06:00 arasında yıkama yapın.</p>
+        <p><strong>-4,40 TL/ay</strong></p>
+        <button onclick="addToCart('Çoklu Tarife Avantajından Yararlanın')">Satın Al</button>
+      </div>
+      <div class="card">
+        <h3>Enerji Tasarruflu LED Kullanım</h3>
+        <p>Geleneksel ampulleri LED ile değiştirin.</p>
+        <p><strong>-15,50 TL/ay</strong></p>
+        <button onclick="addToCart('Enerji Tasarruflu LED Kullanım')">Satın Al</button>
+      </div>
+      <div class="card">
+        <h3>Hayalet Yükleri Kapatın</h3>
+        <p>Prizleri kapatmayı unutmayın.</p>
+        <p><strong>-12,25 TL/ay</strong></p>
+        <button onclick="addToCart('Hayalet Yükleri Kapatın')">Satın Al</button>
+      </div>
+      <div class="card">
+        <h3>LCD TV Kullanımı</h3>
+        <p>Televizyonunuzu doğru şekilde kullanın.</p>
+        <p><strong>-9,45 TL/ay</strong></p>
+        <button onclick="addToCart('LCD TV Kullanımı')">Satın Al</button>
+      </div>

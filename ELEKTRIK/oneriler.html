@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enerji Tasarrufu Önerileri</title>
+  <style>
+    /* Genel Stil */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #000;
+      color: #fff;
+      padding: 10px 20px;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu li {
+      margin-right: 15px;
+    }
+
+    .menu li a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    /* Hero Bölümü */
+    .hero {
+      background-color: #004680;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5em;
+    }
+
+    /* Kartlar */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #1a73e8;
+      color: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card h3 {
+      font-size: 1.2em;
+    }
+
+    .card p {
+      margin: 10px 0;
+    }
+
+    .card button {
+      background-color: #1dbf73;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .card button:hover {
+      background-color: #17a964;
+      transform: scale(1.1);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: #fff;
+      color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 80%;
+      text-align: center;
+    }
+
+    .modal-content h2 {
+      margin-top: 0;
+    }
+
+    .modal-content p {
+      margin: 20px 0;
+    }
+
+    .modal-content button {
+      background-color: #004680;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .modal-content button:hover {
+      background-color: #003356;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="images.jpg" alt="Logo">
+    </div>
+    <nav>
+      <ul class="menu">
+        
+        <li><a href="dashboard.html">Anasayfa</a></li>
+        <li><a href="hakkımızda.html">Hakkımızda</a></li>
+        <li><a href="tüketim.html">Tüketim</a></li>
+        
+        <li><a href="destek.html">Destek</a></li>
+        <li><a href="javascript:void(0);" onclick="logout()">Çıkış Yap</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Bölümü -->
+  <section class="hero">
+    <h1>Enerji Tasarrufu Önerileri</h1>
+    <p>Daha fazla enerji tasarrufu sağlamak için aşağıdaki önerileri inceleyin.</p>
+  </section>
+
+  <!-- Ana İçerik -->
+  <main>
+    <div class="card-container">
+      <div class="card">
+        <h3>Akıllı Termostat Kullanın</h3>
+        <p>Ev sıcaklığını optimize ederek tasarruf sağlayın.</p>
+        <button onclick="openModal('term')">Detayları Gör</button>
+      </div>
+      <div class="card">
+        <h3>Çamaşırları Soğuk Suyla Yıkayın</h3>
+        <p>Sıcak su yerine soğuk su kullanarak enerji tasarrufu yapın.</p>
+        <button onclick="openModal('cold')">Detayları Gör</button>
+      </div>
+      <div class="card">
+        <h3>Güneş Enerjisinden Yararlanın</h3>
+        <p>Elektrik tüketiminizi azaltmak için güneş panelleri kurun.</p>
+        <button onclick="openModal('solar')">Detayları Gör</button>
+      </div>
+      <div class="card">
+        <h3>LED Ampulleri Tercih Edin</h3>
+        <p>Daha az enerji tüketen LED ampullere geçiş yapın.</p>
+        <button onclick="openModal('led')">Detayları Gör</button>
+      </div>
+      <div class="card">
+        <h3>Fazla Cihazları Kapatın</h3>
+        <p>Kullanılmayan cihazları prizden çekin.</p>
+        <button onclick="openModal('devices')">Detayları Gör</button>
+      </div>
+      <div class="card">
+        <h3>Pencereleri Yalıtın</h3>
+        <p>Sıcaklık kaybını önlemek için pencere izolasyonu yapın.</p>
+        <button onclick="openModal('windows')">Detayları Gör</button>
+      </div>
+      <div class="card">
+        <h3>Enerji Verimli Cihazlar Kullanın</h3>
+        <p>A+ enerji sınıfı cihazları tercih edin.</p>
+        <button onclick="openModal('efficient')">Detayları Gör</button>
+      </div>
+      <div class="card">
+        <h3>Perdeleri Akıllı Kullanın</h3>
+        <p>Gündüz güneş ışığından, gece yalıtımdan faydalanın.</p>
+        <button onclick="openModal('curtains')">Detayları Gör</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h2 id="modal-title"></h2>
+      <p id="modal-body"></p>
+      <button onclick="closeModal()">Kapat</button>
+    </div>
+  </div>
+
+  <script>
+    const modalData = {
+      term: { title: "Akıllı Termostat Kullanın", body: "Akıllı termostatlar, enerji kullanımınızı optimize ederek tasarruf sağlar..." },
+      cold: { title: "Çamaşırları Soğuk Suyla Yıkayın", body: "Çamaşırları soğuk suyla yıkayarak enerji tüketiminizi önemli ölçüde azaltabilirsiniz..." },
+      solar: { title: "Güneş Enerjisinden Yararlanın", body: "Güneş enerjisi, yenilenebilir enerji kaynaklarının başında gelir..." },
+      led: { title: "LED Ampulleri Tercih Edin", body: "LED ampuller, geleneksel ampullere göre %75 daha az enerji tüketir..." },
+      devices: { title: "Fazla Cihazları Kapatın", body: "Kullanılmayan cihazları prizden çekerek enerji israfını önleyin..." },
+      windows: { title: "Pencereleri Yalıtın", body: "Pencere izolasyonu yaparak sıcaklık kaybını önleyebilir, ısınma maliyetlerini düşürebilirsiniz..." },
+      efficient: { title: "Enerji Verimli Cihazlar Kullanın", body: "A+ veya üzeri enerji sınıfına sahip cihazlar, elektrik tüketiminizi azaltır..." },
+      curtains: { title: "Perdeleri Akıllı Kullanın", body: "Perdelerle güneş ışığından gün boyu faydalanabilirsiniz..." },
+    };
+
+    function openModal(type) {
+      const modal = document.getElementById('modal');
+      document.getElementById('modal-title').textContent = modalData[type].title;
+      document.getElementById('modal-body').textContent = modalData[type].body;
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

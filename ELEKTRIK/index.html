@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Design</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fefef2; /* Arka plan daha açık pastel ton */
+      color: #34495e;
+      line-height: 1.5;
+      padding-bottom: 50px; /* Footer ile çakışmayı engellemek için alt boşluk */
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #004680;
+      padding: 10px 20px;
+    }
+
+    nav {
+      background-color: #004680; /* Menü için pastel yeşil ton */
+      padding: 15px 0;
+      text-align: center;
+      border-bottom: 3px solid #fbdedf;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: inline-block;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0 10px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #060606; /* Üzerine gelince pembe ton */
+      color: #619dd9;
+      border-radius: 5px;
+    }
+
+    .logo img {
+      width: 50px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    .menu a {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 15px;
+      transition: background-color 0.3s ease;
+    }
+
+    .menu a:hover {
+      background-color: #004680;
+      border-radius: 5px;
+    }
+
+    .language-login {
+      display: flex;
+      align-items: center;
+    }
+
+    .language-login span, .language-login a {
+      margin: 0 5px;
+      color: black;
+    }
+
+    .language-login a {
+      padding: 5px 10px;
+      border: 1px solid #82c4ac;
+      border-radius: 5px;
+      text-decoration: none;
+      color: #82c4ac;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .language-login {
+        margin-top: 10px;
+      }
+    }
+
+    .carousel-and-about {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px;
+      gap: 20px;
+    }
+
+    .carousel, .about-us {
+      flex: 1;
+      height: 300px;
+      border-radius: 10px;
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .carousel img.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .dots {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: #ccc;
+      margin: 0 5px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background-color: #004680;
+    }
+
+    .about-us {
+      background-color: #abdef5;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .about-us h2 {
+      margin-bottom: 10px;
+    }
+
+    .about-us p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .partners {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .partners img {
+      width: 100px;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 20px;
+      background-color: #004680;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta p {
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .cta-button {
+      padding: 10px 20px;
+      background-color: #abdef5;
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #004680;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="images.jpg" alt="Logo">
+
+    </div>
+    <nav class="menu">
+      <a href="cozumlerimiz.html">Çözümlerimiz</a>
+      <a href="planlar.html">Planlar</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="fatura-hesapla.html">Fatura Hesapla</a>
+    </nav>
+    
+    
+    <div class="language-login">
+      <span>TR</span> | <span>@</span>
+      <a href="login.html">Login & Sign in</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="carousel-and-about">
+      <div class="carousel">
+        <img src="çevre5.jpg" alt="Carousel Image" class="active">
+        <img src="çevre 1.jpg" alt="Carousel Image">
+        <img src="çevre2.jpg" alt="Carousel Image">
+        <img src="çevre4.jpg" alt="Carousel Image">
+        <div class="dots">
+          <span class="dot active" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+          <span class="dot" data-index="2"></span>
+          <span class="dot" data-index="3"></span>
+        </div>
+      </div>
+
+      <div class="about-us">
+        <h2>Biz Kimiz?</h2>
+        <p>
+          KİHÜ, kullanıcılarının enerji tüketimini optimize etmelerine ve maliyetlerini düşürmelerine yardımcı olan yenilikçi bir platformdur. Çevre dostu teknolojilerle, sürdürülebilir enerji yönetimini desteklerken daha yaşanabilir bir geleceğe katkı sağlamayı amaçlıyoruz.
+
+Amacımız, bireylerin ve işletmelerin enerji tüketim alışkanlıklarını daha verimli hale getirerek hem çevreye hem de bütçeye fayda sağlayacak çözümler sunmaktır. Kullanıcılarımızın ihtiyaçlarını merkeze alan hizmet anlayışımızla, enerji yönetiminde fark yaratıyoruz.
+
+Misyonumuz, herkes için kolayca erişilebilir, ekonomik ve çevreci enerji çözümleri sunmak; vizyonumuz ise sürdürülebilir enerji yönetiminde lider bir platform olmaktır. Alanında uzman ekibimiz ve güçlü teknolojik altyapımızla, enerji yönetimine yeni bir standart kazandırıyoruz.
+
+KİHÜ, yalnızca bir platform değil; çevreye duyarlı, güvenilir ve yenilikçi çözümlerle geleceğe yön veren bir ortak. Enerjinizi bizimle yönetin, daha güçlü bir geleceği birlikte inşa edelim!
+        </p>
+      </div>
+    </section>
+
+    <section class="partners">
+      <img src="indir.png" alt="Bosch">
+      <img src="beko.jpg" alt="Beko">
+      <img src="siemens.png" alt="Siemens">
+      <img src="arçelik.png" alt="Arçelik">
+      <img src="profilo.png" alt="Profilo">
+      <img src="samsung.png" alt="Samsung">
+    </section>
+
+    <section class="cta">
+      <p>Sen de elektrik faturalarını KİHÜ ile yönetmeye başla</p>
+      <a href="login.html" class="cta-button">HEMEN BAŞLA</a>
+    </section>
+  </main>
+
+  <script>
+    const images = document.querySelectorAll('.carousel img');
+    const dots = document.querySelectorAll('.dot');
+    let currentIndex = 0;
+
+    function updateCarousel(nextIndex) {
+      images.forEach(image => image.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+      images[nextIndex].classList.add('active');
+      dots[nextIndex].classList.add('active');
+      currentIndex = nextIndex;
+    }
+
+    setInterval(() => {
+      const nextIndex = (currentIndex + 1) % images.length;
+      updateCarousel(nextIndex);
+    }, 5000);
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-index'));
+        updateCarousel(index);
+      });
+    });
+  </script>
+</body>
+</html>

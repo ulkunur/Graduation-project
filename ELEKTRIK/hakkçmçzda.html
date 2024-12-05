@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yenilikçi Dijital Enerji Yönetimi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      text-align: center; /* Ensures the content is centered */
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #000;
+      color: #fff;
+      padding: 10px 20px;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu li {
+      margin-right: 15px;
+    }
+
+    .menu li a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-top: 20px;
+      text-align: center; /* Centers the h1 text */
+    }
+
+    h2 {
+      font-size: 32px;
+      color: #000;
+      font-weight: bold;
+      text-align: center; /* Centers the h2 text */
+    }
+
+    /* Menu Styling */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    nav ul li a:hover {
+      color: #1dbf73;
+    }
+
+    /* Card Section Styling */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Menu -->
+  <header>
+    <div class="logo">
+      <img src="images.jpg" alt="Logo">
+    </div>
+    <nav>
+        <ul class="menu">
+          <li><a href="dashboard.html">Anasayfa</a></li>
+          
+          <li><a href="tüketim.html">Tüketim</a></li>
+          <li><a href="oneriler.html">Öneriler</a></li>
+          <li><a href="destek.html">Destek</a></li>
+          <li><a href="javascript:void(0);" onclick="logout()">Çıkış Yap</a></li>
+        </ul>
+    </nav>
+  </header>
+
+  <!-- Main Title Section -->
+  <h1>Dinamik ve Kesintisiz Verilerle</h1>
+  <h2>Yenilikçi Dijital Enerji Yönetimi</h2>
+
+  <!-- Card Section -->
+  <div class="container">
+    <div class="card" id="zaman-ve-maliyet">
+      <img src="1.webp" alt="Zaman ve Maliyet Tasarrufu">
+      <h3>Zaman ve Maliyet Tasarrufu</h3>
+      <p>Enerji tüketimini optimize ederek zamandan ve maliyetten tasarruf edin.</p>
+    </div>
+
+    <div class="card" id="operasyonel-verimlilik">
+      <img src="2.jpg" alt="Operasyonel Verimlilik">
+      <h3>Operasyonel Verimlilik</h3>
+      <p>Enerji kaynaklarını etkili bir şekilde yöneterek operasyonel maliyetleri azaltın.</p>
+    </div>
+
+    <div class="card" id="cevreye-katki">
+      <img src="3.jpg" alt="Çevreye Katkı">
+      <h3>Çevreye Katkı</h3>
+      <p>Daha az enerji tüketerek çevreye olan etkinizi azaltın ve sürdürülebilirliğe katkıda bulunun.</p>
+    </div>
+
+    <div class="card" id="web-ve-mobil">
+      <img src="4.jpg" alt="Web ve Mobilde Erişim">
+      <h3>Web ve Mobilde Erişim</h3>
+      <p>Enerji verilerinizi web ve mobil cihazlardan istediğiniz zaman görüntüleyin.</p>
+    </div>
+
+    <div class="card" id="uzun-vadeli-kazanc">
+      <img src="5.webp" alt="Uzun Vadeli Kazanç">
+      <h3>Uzun Vadeli Kazanç</h3>
+      <p>Enerji yönetim stratejileri ile uzun vadede yüksek kazanç sağlayın.</p>
+    </div>
+
+    <div class="card" id="veri-gorsellestirme">
+      <img src="6.webp" alt="Veri Görselleştirme">
+      <h3>Veri Görselleştirme</h3>
+      <p>Enerji tüketimi hakkında detaylı ve anlaşılır raporlar alın.</p>
+    </div>
+  </div>
+</body>
+</html>

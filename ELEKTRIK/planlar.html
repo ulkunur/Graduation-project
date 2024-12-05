@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planlarımız</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fefef2; /* Arka plan daha açık pastel ton */
+      color: #34495e;
+      line-height: 1.5;
+    }
+
+    header {
+      background-color: #63a6cd;  /* Başlık kısmı için yumuşak yeşil ton */
+      padding: 20px 0;
+      text-align: center;
+      color: #34495e;
+      border-bottom: 3px solid  #004680;
+    }
+
+    header h1 {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    nav {
+      background-color: #004680; /* Menü için pastel yeşil ton */
+      padding: 15px 0;
+      text-align: center;
+      border-bottom: 3px solid #fbdedf;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: inline-block;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0 10px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #fbdedf; /* Üzerine gelince pembe ton */
+      color: #34495e;
+      border-radius: 5px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .plan {
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 2px solid  #004680; 
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      transition: transform 0.3s ease;
+    }
+
+    .plan:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .plan h2 {
+      font-size: 24px;
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .plan p {
+      font-size: 16px;
+      text-align: justify;
+      color: #555;
+    }
+
+    .plan-price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #004680; 
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #63a6cd;
+      color: #34495e;
+      width: 100%;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    footer a {
+      color: #004680; 
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Planlarımız</h1>
+</header>
+
+<nav>
+  <a href="index.html">Anasayfa</a>
+  <a href="cozumlerimiz.html">Çözümler</a>
+  <a href="hakkimizda.html">Hakkımızda</a>
+  <a href="fatura-hesapla.html">Fatura Hesapla</a>
+  <a href="login.html">Giriş Yap</a>
+</nav>
+
+<div class="container">
+  <div class="plan">
+    <h2>Başlangıç Planı</h2>
+    <p>Bu plan, bireysel kullanıcılar ve küçük işletmeler için temel enerji yönetim hizmetlerini sunar. Enerji tüketiminizi takip edebilir ve aylık raporlar alabilirsiniz.</p>
+    <p class="plan-price">Fiyat: 199 TL/ay</p>
+  </div>
+
+  <div class="plan">
+    <h2>Profesyonel Plan</h2>
+    <p>Orta ölçekli işletmeler için uygun olan bu plan, enerji tasarrufu stratejileri ve gerçek zamanlı izleme hizmetlerini içerir. Enerji tüketiminizi optimize edin ve maliyetlerinizi azaltın.</p>
+    <p class="plan-price">Fiyat: 499 TL/ay</p>
+  </div>
+
+  <div class="plan">
+    <h2>Kurumsal Plan</h2>
+    <p>Kurumsal müşteriler için özel olarak tasarlanan bu plan, yenilenebilir enerji entegrasyonu ve büyük veri analizi gibi gelişmiş özellikler sunar. İşletmenizin enerji verimliliğini maksimuma çıkarın.</p>
+    <p class="plan-price">Fiyat: 999 TL/ay</p>
+  </div>
+</div>
+
+<footer>
+  © 2024 KİHÜ. Tüm hakları saklıdır. <a href="iletisim.html">İletişim</a>
+</footer>
+
+</body>
+</html>
